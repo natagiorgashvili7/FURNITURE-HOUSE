@@ -1,21 +1,45 @@
-//burger menu
-const burger = document.getElementById('burger');
+const burger      = document.getElementById('burger');
 const menuOverlay = document.getElementById('menuOverlay');
-const menuLinks = document.querySelectorAll('.menu-link');
+const menuLinks   = document.querySelectorAll('.menu-link');
 
-// Toggle menu open/close
+let scrollY = 0;
+
+// ── open / close burger ──────────────────────────
 burger.addEventListener('click', () => {
-  burger.classList.toggle('open');
+  const isOpen = burger.classList.toggle('open');
   menuOverlay.classList.toggle('open');
-  document.body.classList.toggle('no-scroll');
+
+  if (isOpen) {
+    scrollY = window.scrollY;
+    document.body.style.top    = `-${scrollY}px`;
+    document.body.classList.add('no-scroll');
+  } else {
+    document.body.classList.remove('no-scroll');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
+  }
 });
 
-// Close menu when a link is clicked
+// ── click link → close menu → scroll to section ─
 menuLinks.forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const target = link.getAttribute('href');
+
+    // close menu
     burger.classList.remove('open');
     menuOverlay.classList.remove('open');
     document.body.classList.remove('no-scroll');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
+
+    // wait for overlay to close then scroll
+    setTimeout(() => {
+      const section = document.querySelector(target);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 420);
   });
 });
-
