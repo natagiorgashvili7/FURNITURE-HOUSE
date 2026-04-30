@@ -4,44 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WOOD ART</title>
-
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
   <header class="header" id="header">
-    <a href="#" class="logo">WOOD ART</a>
-    <!-- Desktop Nav -->
+    <a href="#home" class="logo">WOOD ART</a>
+
     <nav class="nav">
       <a href="#home" class="nav-link">მთავარი</a>
       <a href="#about" class="nav-link">შესახებ</a>
       <a href="#contact" class="nav-link">საკონტაქტო</a>
     </nav>
+
     <button class="burger" id="burger">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <div class="menu-overlay" id="menuOverlay">
-      <nav class="menu-nav">
-        <a href="#home" class="nav-link">მთავარი</a>
-        <a href="#about" class="nav-link">შესახებ</a>
-        <a href="#contact" class="nav-link">საკონტაქტო</a>
-      </nav>
-    </div>
-</header>
+  </header>
 
-<main>
-  <section class="home_section" id="home">
-    <section class="main_title">
-      <h1 class="title">კომფორტისა და სტილის სრულყოფილი შერწყმა</h1>
-      <p class="sub_title">შექმენით სასურველი ინტერიერი ხარისხიან და დახვეწილ დეტალებთან ერთად.</p>
-    </section>
-    <section class="main_photo">
-      <img src="images/main_photo.jpg" alt="main photo">
-    </section>
-  </section>
+  <!-- overlay is OUTSIDE header -->
+  <div class="menu-overlay" id="menuOverlay">
+    <nav class="menu-nav">
+      <a href="#home" class="menu-link">მთავარი</a>
+      <a href="#about" class="menu-link">შესახებ</a>
+      <a href="#contact" class="menu-link">საკონტაქტო</a>
+    </nav>
+  </div>
 
-</main>
+  <main>
+    <section class="home_section" id="home">
+      <div class="main_title">
+        <h1 class="title">კომფორტისა და სტილის <span>სრულყოფილი შერწყმა</span></h1>
+        <p class="sub_title">შექმენით სასურველი ინტერიერი ხარისხიან და დახვეწილ დეტალებთან ერთად.</p>
+        <a href="#about" class="hero-btn">კოლექციის ნახვა</a>
+      </div>
+      <div class="main_photo">
+        <img src="images/main_photo.jpg" alt="main photo">
+      </div>
+    </section>
+
+    <section class="about_section" id="about">
+      <h2>შესახებ</h2>
+
+    </section>
+
+    <section class="contact_section" id="contact">
+      <h2>საკონტაქტო</h2>
+
+    </section>
+  </main>
 
   <script src="data/products.js"></script>
   <script src="js/main.js"></script>
