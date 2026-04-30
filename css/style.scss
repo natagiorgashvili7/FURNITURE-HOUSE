@@ -333,10 +333,9 @@ h1, h2, h3, p, a, span {
 }
 
 // ═══════════════════════════════════════════
-// ABOUT + CONTACT SECTIONS
+// ABOUT SECTION
 // ═══════════════════════════════════════════
-.about_section,
-.contact_section {
+.about_section {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -363,6 +362,181 @@ h1, h2, h3, p, a, span {
     max-width: 600px;
     line-height: 1.8;
   }
+}
+
+// ═══════════════════════════════════════════
+// CONTACT SECTION
+// ═══════════════════════════════════════════
+.contact_section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 60px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $black;
+
+  .contact_inner {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+  }
+
+  // ── Left ──────────────────────────────────
+  .contact_left {
+    flex: 1.2;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .contact_info{
+      display: flex;
+      justify-content: center;
+      h2 {
+        font-family: $font-display;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        font-weight: 300;
+        color: $gold;
+        letter-spacing: 4px;
+        text-align: center;
+      }
+    }
+
+    // ── NEW h2 design ─────────────────────
+    .contact_heading {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .contact_eyebrow {
+        font-family: $font-body;
+        font-size: 0.65rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: $gold;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 40px;
+          height: 1px;
+          background-color: $gold;
+          opacity: 0.5;
+        }
+      }
+
+      h2 {
+        font-family: $font-body;
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 300;
+        color: $white;
+        letter-spacing: 0;
+        line-height: 1.1;
+        text-transform: none;
+
+        span {
+          display: block;
+          color: $gold;
+          font-family: $font-display;
+          font-size: 1.1em;
+          font-weight: 300;
+          font-style: italic;
+        }
+      }
+    }
+
+    p {
+      color: $gray;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      max-width: 380px;
+    }
+  }
+
+  // ── Form ──────────────────────────────────
+  .contact_form {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+  }
+
+  .form_group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: $gold;
+    }
+
+    input, textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba($white, 0.2);
+      color: $white;
+      font-family: $font-body;
+      font-size: 0.88rem;
+      padding: 10px 0;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+      resize: none;
+
+      &::placeholder {
+        color: rgba($white, 0.25);
+        font-size: 0.82rem;
+      }
+
+      &:focus {
+        border-bottom-color: $gold;
+      }
+    }
+
+    textarea {
+      min-height: 80px;
+    }
+  }
+
+  .send_btn {
+    margin-top: 8px;
+    padding: 16px 48px;
+    background: transparent;
+    border: 1px solid $gold;
+    color: $gold;
+    font-family: $font-body;
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    align-self: flex-start;
+
+    &:hover {
+      background-color: $gold;
+      color: $black;
+    }
+  }
+
+  .form_status {
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    margin-top: -16px;
+
+    &.success { color: #7ecb9a; }
+    &.error   { color: #e07070; }
+  }
+
+
 }
 
 // ═══════════════════════════════════════════
@@ -405,10 +579,29 @@ h1, h2, h3, p, a, span {
     }
   }
 
-  .about_section,
+  .about_section {
+    padding: 80px 24px 60px;
+    min-height: unset;
+  }
+
   .contact_section {
     padding: 80px 24px 60px;
     min-height: unset;
+    align-items: flex-start;
+
+    .contact_inner {
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .contact_left p {
+      max-width: 100%;
+    }
+
+    .send_btn {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   .menu-overlay .menu-nav .menu-link {
@@ -437,6 +630,14 @@ h1, h2, h3, p, a, span {
     }
 
     .main_photo { height: 56vw; }
+  }
+
+  .contact_section {
+    padding: 80px 16px 48px;
+
+    .contact_left .contact_heading h2 {
+      font-size: 2rem;
+    }
   }
 
   .menu-overlay .menu-nav {
@@ -485,7 +686,6 @@ h1, h2, h3, p, a, span {
   .contact_section {
     padding: 60px 16px 40px;
 
-    h2 { letter-spacing: 2px; }
     p  { font-size: 0.8rem; }
   }
 

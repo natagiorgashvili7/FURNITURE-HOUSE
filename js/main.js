@@ -43,3 +43,37 @@ menuLinks.forEach(link => {
     }, 420);
   });
 });
+// ── Contact Form ──────────────────────────────────
+const contactForm = document.getElementById('contactForm');
+const formStatus  = document.getElementById('formStatus');
+const btnText     = document.getElementById('btnText');
+
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  btnText.textContent = 'იგზავნება...';
+
+  const templateParams = {
+    from_name: document.getElementById('from_name').value,
+    from_email: document.getElementById('from_email').value,
+    message: document.getElementById('message').value
+  };
+
+  emailjs.send('service_upv5ldx', 'template_9zo3mkh', templateParams)
+    .then(function(response) {
+      console.log('SUCCESS!', response);
+
+      btnText.textContent = 'გაგზავნა';
+      formStatus.textContent = '✓ შეტყობინება გაიგზავნა!';
+      formStatus.style.color = 'green';
+
+      contactForm.reset();
+    })
+    .catch(function(error) {
+      console.log('FAILED...', error);
+
+      btnText.textContent = 'გაგზავნა';
+      formStatus.textContent = '✗ შეცდომა. სცადეთ თავიდან.';
+      formStatus.style.color = 'red';
+    });
+});

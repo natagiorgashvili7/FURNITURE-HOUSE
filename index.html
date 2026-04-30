@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WOOD ART</title>
+  <link rel="icon" type="image/x-icon" href="images/logo.jpg">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -38,7 +39,7 @@
       <div class="main_title">
         <h1 class="title">კომფორტისა და სტილის <span>სრულყოფილი შერწყმა</span></h1>
         <p class="sub_title">შექმენით სასურველი ინტერიერი ხარისხიან და დახვეწილ დეტალებთან ერთად.</p>
-        <a href="#about" class="hero-btn">კოლექციის ნახვა</a>
+        <a href="#collection" class="hero-btn">კოლექციის ნახვა</a>
       </div>
       <div class="main_photo">
         <img src="images/main_photo.jpg" alt="main photo">
@@ -51,11 +52,41 @@
     </section>
 
     <section class="contact_section" id="contact">
-      <h2>საკონტაქტო</h2>
+      <div class="contact_inner">
 
+        <!-- Left side -->
+        <div class="contact_left">
+          <div class="contact_info">
+            <h2>საკონტაქტო</h2>
+          </div>
+          <p>დაგვიკავშირდით</p>
+          <form class="contact_form" id="contactForm">
+            <div class="form_group">
+              <label>სახელი</label>
+              <input type="text" id="from_name" placeholder="შენი სახელი" required />
+            </div>
+            <div class="form_group">
+              <label>ელ-ფოსტა</label>
+              <input type="email" id="from_email" placeholder="შენი ელ-ფოსტა" required />
+            </div>
+            <div class="form_group">
+              <label>შეტყობინება</label>
+              <textarea id="message" rows="4" placeholder="შენი შეტყობინება" required></textarea>
+            </div>
+            <button type="submit" class="send_btn">
+              <span id="btnText">გაგზავნა</span>
+            </button>
+          </form>
+
+          <p class="form_status" id="formStatus"></p>
+        </div>
+
+      </div>
     </section>
-  </main>
 
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>emailjs.init("Huw9ehwUBKolvc5UG");</script>
   <script src="data/products.js"></script>
   <script src="js/main.js"></script>
 
