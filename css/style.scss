@@ -370,23 +370,24 @@ h1, h2, h3, p, a, span {
 .contact_section {
   width: 100%;
   min-height: 100vh;
-  padding: 120px 60px 80px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: $black;
+  gap: 20px;
+  padding: 120px 60px 80px;
 
   .contact_inner {
     width: 100%;
     max-width: 1100px;
     display: flex;
     gap: 80px;
-    align-items: flex-start;
+    align-items: center;
   }
 
   // ── Left ──────────────────────────────────
   .contact_left {
-    flex: 1.2;
+    flex: 1;
     min-width: 0;
     display: flex;
     flex-direction: column;
@@ -395,6 +396,7 @@ h1, h2, h3, p, a, span {
     .contact_info{
       display: flex;
       justify-content: center;
+      gap: 20px;
       h2 {
         font-family: $font-display;
         font-size: clamp(2rem, 4vw, 3.5rem);
