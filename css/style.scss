@@ -1,11 +1,17 @@
 // ═══════════════════════════════════════════
 // VARIABLES
 // ═══════════════════════════════════════════
-$black:      #0a0a0a;
-$black-soft: #1a1a1a;
-$gold:       #c9a84c;
-$white:      #f5f5f5;
-$gray:       #888888;
+$black:       #0a0a0a;
+$black-soft:  #1a1a1a;
+$gold:        #c9a84c;
+$gold-light:  #e0bc72;
+$white:       #f5f5f5;
+$gray:        #888888;
+$bg:          #111111;
+$text-light:  #ffffff;
+$text-muted:  #aaaaaa;
+$text-body:   #cccccc;
+$transition:  0.35s ease;
 
 $font-display: 'Cormorant Garamond', serif;
 $font-body:    'Montserrat', sans-serif;
@@ -175,7 +181,6 @@ h1, h2, h3, p, a, span {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-
   opacity: 0;
   pointer-events: none;
   transform: translateY(-16px);
@@ -337,31 +342,118 @@ h1, h2, h3, p, a, span {
 // ═══════════════════════════════════════════
 .about_section {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
   padding: 120px 60px 80px;
 
-  h2 {
+  > h2 {
     font-family: $font-display;
     font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 300;
     color: $gold;
     letter-spacing: 4px;
     text-align: center;
+    margin-bottom: 60px;
+  }
+}
+
+// ═══════════════════════════════════════════
+// MATERIALS SECTION
+// ═══════════════════════════════════════════
+.materials-section {
+  background-color: $black;
+  padding: 4rem 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.materials-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.materials-header {
+  margin-bottom: 3rem;
+}
+
+.materials-title {
+  color: $gold;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-weight: 600;
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.02em;
+  font-family: $font-body;
+}
+
+.materials-intro {
+  color: $text-body;
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 100%;
+}
+
+.materials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+// KEY FIX: default visible, animate only when JS adds .animate class to list
+.material-item {
+  display: flex;
+  align-items: stretch;
+  cursor: default;
+  border-radius: 4px;
+
+  // only animate if JS is working (adds .animate to .materials-list)
+  .materials-list.animate & {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity $transition, transform $transition;
+
+    @for $i from 0 through 5 {
+      &[data-index="#{$i}"] {
+        transition-delay: #{$i * 0.08}s;
+      }
+    }
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  p {
-    color: $gray;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    text-align: center;
-    max-width: 600px;
-    line-height: 1.8;
+  &:hover {
+    .material-accent { background-color: $gold-light; }
+    .material-name   { color: $gold-light; }
   }
+}
+
+.material-accent {
+  width: 3px;
+  flex-shrink: 0;
+  background-color: $gold;
+  border-radius: 2px;
+  transition: background-color $transition;
+}
+
+.material-content {
+  padding: 0.1rem 0 0.1rem 1.25rem;
+}
+
+.material-name {
+  color: $text-light;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  transition: color $transition;
+  font-family: $font-body;
+}
+
+.material-desc {
+  color: $text-muted;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0;
 }
 
 // ═══════════════════════════════════════════
@@ -374,7 +466,6 @@ h1, h2, h3, p, a, span {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   padding: 120px 60px 80px;
 
   .contact_inner {
@@ -385,7 +476,6 @@ h1, h2, h3, p, a, span {
     align-items: center;
   }
 
-  // ── Left ──────────────────────────────────
   .contact_left {
     flex: 1;
     min-width: 0;
@@ -393,10 +483,10 @@ h1, h2, h3, p, a, span {
     flex-direction: column;
     gap: 32px;
 
-    .contact_info{
+    .contact_info {
       display: flex;
       justify-content: center;
-      gap: 20px;
+
       h2 {
         font-family: $font-display;
         font-size: clamp(2rem, 4vw, 3.5rem);
@@ -404,52 +494,6 @@ h1, h2, h3, p, a, span {
         color: $gold;
         letter-spacing: 4px;
         text-align: center;
-      }
-    }
-
-    // ── NEW h2 design ─────────────────────
-    .contact_heading {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-
-      .contact_eyebrow {
-        font-family: $font-body;
-        font-size: 0.65rem;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        color: $gold;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-
-        &::after {
-          content: '';
-          display: block;
-          width: 40px;
-          height: 1px;
-          background-color: $gold;
-          opacity: 0.5;
-        }
-      }
-
-      h2 {
-        font-family: $font-body;
-        font-size: clamp(2rem, 4vw, 3rem);
-        font-weight: 300;
-        color: $white;
-        letter-spacing: 0;
-        line-height: 1.1;
-        text-transform: none;
-
-        span {
-          display: block;
-          color: $gold;
-          font-family: $font-display;
-          font-size: 1.1em;
-          font-weight: 300;
-          font-style: italic;
-        }
       }
     }
 
@@ -461,7 +505,6 @@ h1, h2, h3, p, a, span {
     }
   }
 
-  // ── Form ──────────────────────────────────
   .contact_form {
     display: flex;
     flex-direction: column;
@@ -499,14 +542,10 @@ h1, h2, h3, p, a, span {
         font-size: 0.82rem;
       }
 
-      &:focus {
-        border-bottom-color: $gold;
-      }
+      &:focus { border-bottom-color: $gold; }
     }
 
-    textarea {
-      min-height: 80px;
-    }
+    textarea { min-height: 80px; }
   }
 
   .send_btn {
@@ -537,8 +576,6 @@ h1, h2, h3, p, a, span {
     &.success { color: #7ecb9a; }
     &.error   { color: #e07070; }
   }
-
-
 }
 
 // ═══════════════════════════════════════════
@@ -564,12 +601,8 @@ h1, h2, h3, p, a, span {
       flex: 0 0 auto;
       width: 100%;
 
-      .sub_title {
-        max-width: 100%;
-        width: 100%;
-      }
-
-      .hero-btn { align-self: center; }
+      .sub_title { max-width: 100%; width: 100%; }
+      .hero-btn  { align-self: center; }
     }
 
     .main_photo {
@@ -582,9 +615,19 @@ h1, h2, h3, p, a, span {
   }
 
   .about_section {
-    padding: 80px 24px 60px;
-    min-height: unset;
+    padding: 80px 0 60px;
+
+    > h2 {
+      padding: 0 24px;
+      margin-bottom: 40px;
+    }
   }
+
+  .materials-section   { padding: 2.5rem 1.25rem; }
+  .materials-title     { font-size: 1.2rem; }
+  .materials-intro     { font-size: 0.92rem; }
+  .material-name       { font-size: 0.95rem; }
+  .material-desc       { font-size: 0.85rem; }
 
   .contact_section {
     padding: 80px 24px 60px;
@@ -596,9 +639,7 @@ h1, h2, h3, p, a, span {
       gap: 48px;
     }
 
-    .contact_left p {
-      max-width: 100%;
-    }
+    .contact_left p { max-width: 100%; }
 
     .send_btn {
       width: 100%;
@@ -625,30 +666,30 @@ h1, h2, h3, p, a, span {
 
       .title     { font-size: clamp(1.5rem, 6vw, 2rem); }
       .sub_title { font-size: 0.82rem; }
-      .hero-btn  {
-        padding: 12px 28px;
-        font-size: 0.68rem;
-      }
+      .hero-btn  { padding: 12px 28px; font-size: 0.68rem; }
     }
 
     .main_photo { height: 56vw; }
   }
 
+  .about_section   { padding: 70px 0 48px; }
+
+  .materials-section  { padding: 2rem 1rem; }
+  .materials-header   { margin-bottom: 2rem; }
+  .materials-title    { font-size: 1.1rem; margin-bottom: 1rem; }
+  .materials-intro    { font-size: 0.88rem; line-height: 1.7; }
+  .materials-list     { gap: 1.2rem; }
+  .material-content   { padding-left: 1rem; }
+  .material-name      { font-size: 0.9rem; }
+  .material-desc      { font-size: 0.82rem; line-height: 1.6; }
+
   .contact_section {
     padding: 80px 16px 48px;
-
-    .contact_left .contact_heading h2 {
-      font-size: 2rem;
-    }
   }
 
   .menu-overlay .menu-nav {
     gap: 28px;
-
-    .menu-link {
-      font-size: 1.6rem;
-      letter-spacing: 3px;
-    }
+    .menu-link { font-size: 1.6rem; letter-spacing: 3px; }
   }
 }
 
@@ -658,11 +699,7 @@ h1, h2, h3, p, a, span {
 @media (max-width: 380px) {
   .header {
     padding: 14px 16px;
-
-    .logo {
-      font-size: 1rem;
-      letter-spacing: 2px;
-    }
+    .logo { font-size: 1rem; letter-spacing: 2px; }
   }
 
   .home_section {
@@ -674,29 +711,27 @@ h1, h2, h3, p, a, span {
 
       .title     { font-size: 1.4rem; }
       .sub_title { font-size: 0.75rem; line-height: 1.6; }
-      .hero-btn  {
-        padding: 10px 20px;
-        font-size: 0.62rem;
-        letter-spacing: 2px;
-      }
+      .hero-btn  { padding: 10px 20px; font-size: 0.62rem; letter-spacing: 2px; }
     }
 
     .main_photo { height: 58vw; }
   }
 
-  .about_section,
+  .about_section  { padding: 60px 0 36px; }
+
+  .materials-section { padding: 1.75rem 0.875rem; }
+  .materials-title   { font-size: 1rem; }
+  .materials-intro   { font-size: 0.82rem; }
+  .material-name     { font-size: 0.85rem; }
+  .material-desc     { font-size: 0.78rem; }
+
   .contact_section {
     padding: 60px 16px 40px;
-
-    p  { font-size: 0.8rem; }
+    p { font-size: 0.8rem; }
   }
 
   .menu-overlay .menu-nav {
     gap: 24px;
-
-    .menu-link {
-      font-size: 1.4rem;
-      letter-spacing: 2px;
-    }
+    .menu-link { font-size: 1.4rem; letter-spacing: 2px; }
   }
 }
