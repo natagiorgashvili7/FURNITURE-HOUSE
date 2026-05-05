@@ -520,6 +520,105 @@ h1, h2, h3, p, a, span {
   color: #e07070;
 }
 
+.footer {
+  background: #0a0a0a;
+  color: #e8dfd2;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+}
+.footer__inner {
+  padding: 64px 60px 48px;
+  max-width: 960px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 48px;
+  grid-template-areas: "brand   contact" "desc    contact" "social  contact";
+}
+.footer__brand {
+  grid-area: brand;
+  margin-bottom: 20px;
+  align-self: end;
+}
+.footer__logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #c9a84c;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.footer__tagline {
+  font-size: 12px;
+  color: #8a7e72;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+.footer__desc {
+  grid-area: desc;
+  font-size: 14px;
+  color: #6e6358;
+  line-height: 1.75;
+  margin: 0 0 20px;
+}
+.footer__social {
+  grid-area: social;
+  display: flex;
+  gap: 12px;
+  align-self: start;
+}
+.footer__social-btn {
+  width: 36px;
+  height: 36px;
+  border: 0.5px solid rgba(201, 168, 76, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.footer__social-btn:hover {
+  border-color: #c9a84c;
+  background: rgba(201, 168, 76, 0.08);
+}
+.footer__social-btn:hover .footer__social-icon {
+  fill: #c9a84c;
+}
+.footer__social-icon {
+  width: 15px;
+  height: 15px;
+  fill: #6e6358;
+  transition: fill 0.2s;
+}
+.footer__contact {
+  grid-area: contact;
+  list-style: none;
+  padding: 0 0 0 48px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  border-left: 0.5px solid rgba(201, 168, 76, 0.2);
+}
+.footer__contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.footer__contact-label {
+  color: #4a4540;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.footer__contact-value {
+  font-size: 15px;
+  color: #8a7e72;
+}
+
 @media (max-width: 768px) {
   .header {
     padding: 18px 24px;
@@ -599,6 +698,19 @@ h1, h2, h3, p, a, span {
     font-size: 2rem;
     letter-spacing: 4px;
   }
+  .footer__inner {
+    padding: 40px 24px 36px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "brand" "desc" "social" "contact";
+  }
+  .footer__social {
+    margin-bottom: 28px;
+  }
+  .footer__contact {
+    border-left: none;
+    border-top: 0.5px solid rgba(201, 168, 76, 0.2);
+    padding: 28px 0 0;
+  }
 }
 @media (max-width: 480px) {
   .home_section {
@@ -661,6 +773,12 @@ h1, h2, h3, p, a, span {
     font-size: 1.6rem;
     letter-spacing: 3px;
   }
+  .footer__inner {
+    padding: 40px 20px 32px;
+  }
+  .footer__logo {
+    font-size: 1.3rem;
+  }
 }
 @media (max-width: 380px) {
   .header {
@@ -722,6 +840,22 @@ h1, h2, h3, p, a, span {
   .menu-overlay .menu-nav .menu-link {
     font-size: 1.4rem;
     letter-spacing: 2px;
+  }
+  .footer__inner {
+    padding: 28px 16px 28px;
+  }
+  .footer__logo {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  .footer__tagline {
+    font-size: 11px;
+  }
+  .footer__desc {
+    font-size: 13px;
+  }
+  .footer__contact-value {
+    font-size: 14px;
   }
 }
 
