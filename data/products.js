@@ -1,74 +1,192 @@
 const PRODUCTS = [
   {
     id: 1,
-    name: "Luxury Leather Sofa Set",
-    room: "living-room",
-    roomLabel: "მისაღები",
-    description: "პრემიუმ იტალიური ტყავის დივანი ელეგანტური ხის აქსესუარებით. ღრმა ბალიშები და უდროო დიზაინი.",
+    name: "სამზარეულო",
+    room: "dining-room",
+    roomLabel: "სამზარეულო",
+    description: "გამოყენებული მასალები: ავსტრიული ლამინატი — Egger თურქული მდფ — AGT პოლონური მექანიზმები — GTV",
     photos: [
-      "images/products/living-sofa-1.jpg",
-      "images/products/living-sofa-2.jpg",
-      "images/products/living-sofa-3.jpg"
+      "images/kitchen/1/1.jpg",
+      "images/kitchen/1/2.jpg",
+      "images/kitchen/1/3.jpg"
     ]
   },
   {
     id: 2,
-    name: "Contemporary Living Room Set",
-    room: "living-room",
-    roomLabel: "მისაღები",
-    description: "თანამედროვე სალონის კომპლექტი სუფთა ხაზებითა და პრემიუმ ხის მოპირკეთებით.",
+    name: "სამზარეულო",
+    room: "dining-room",
+    roomLabel: "სამზარეულო",
+    description: "გამოყენებული მასალა : ავსტრიული ლამინატი; თურქული AGT მდფ; ნეოლითი; მექანიზმი პოლონური GTV",
     photos: [
-      "images/products/living-contemporary-1.jpg",
-      "images/products/living-contemporary-2.jpg",
-      "images/products/living-contemporary-3.jpg"
+      "images/kitchen/2/1.jpg",
+      "images/kitchen/2/2.jpg",
+      "images/kitchen/2/3.jpg",
+      "images/kitchen/2/4.jpg",
     ]
   },
   {
     id: 3,
-    name: "Oak King Bed Frame",
+    name: "სათავსო კარადა",
     room: "bedroom",
     roomLabel: "საძინებელი",
-    description: "მყარი მუხის king-size საწოლის ჩარჩო ხელით გამოჭრილი სათავით. ბუნებრივი ფინიში.",
+    description: "სლაიდ კარი იდეალური გადაწყვეტაა მცირე სივრცისთვის, რადგან აერთიანებს თანამედროვე დიზაინს, ტევადობას და მაქსიმალურ ფუნქციურობას.",
     photos: [
-      "images/products/bedroom-oak-1.jpg",
-      "images/products/bedroom-oak-2.jpg",
-      "images/products/bedroom-oak-3.jpg"
+      "images/badroom/3/1.jpg",
+      "images/badroom/3/2.jpg",
+      "images/badroom/3/3.jpg"
     ]
   },
   {
     id: 4,
-    name: "Walnut Wardrobe Suite",
+    name: "კარადა",
     room: "bedroom",
     roomLabel: "საძინებელი",
-    description: "იატაკიდან ჭერამდე კაკლის კარადა რბილად დახურვის საკიდებით და სარკის შიდა პანელებით.",
+    description: "საძინებლის ტევადი კარადა",
     photos: [
-      "images/products/bedroom-wardrobe-1.jpg",
-      "images/products/bedroom-wardrobe-2.jpg",
-      "images/products/bedroom-wardrobe-3.jpg"
+      "images/badroom/4/1.jpg",
+      "images/badroom/4/2.jpg",
+      "images/badroom/4/3.jpg",
+      "images/badroom/4/4.jpg",
     ]
   },
-  {
+    {
     id: 5,
-    name: "Marble Top Dining Table",
+    name: "ღვინის სათავსო",
     room: "dining-room",
     roomLabel: "სამზარეულო",
-    description: "კალაკათას მარმარილოს ზედაპირი ფოლადის ფუძეზე. 8 კაცზე გათვლილი სასადილო მაგიდა.",
+    description: "ღვინის სათავსო საკმაოდ პრაქტიკული და ფუნქციურად გამოყენაბადია, რომელიც სრულიად ცვლის არსებულ ატმოსფეროს",
     photos: [
-      "images/products/dining-marble-1.jpg",
-      "images/products/dining-marble-2.jpg",
-      "images/products/dining-marble-3.jpg"
+      "images/kitchen/5/1.jpg",
+      "images/kitchen/5/2.jpg",
+      "images/kitchen/5/3.jpg"
     ]
   },
   {
     id: 6,
-    name: "Executive Oak Desk",
+    name: "ტვ კარადა",
+    room: "living-room",
+    roomLabel: "მისაღები",
+    description: "ტვ სივრცეს სახლში დიდი დატვირთვა აქვს, სიმყუდროვის შექმნის კუთხით",
+    photos: [
+      "images/livingroom/6/1.jpg",
+      "images/livingroom/6/2.jpg",
+      "images/livingroom/6/3.jpg"
+    ]
+  },
+   {
+    id: 7,
+    name: "სამზარეულო",
+    room: "dining-room",
+    roomLabel: "სამზარეულო",
+    description: "გამოყენებული მასალა : თურქული მდფ; ავსტრიული ლამინატი; პოლონური მექანიზმები.",
+    photos: [
+      "images/kitchen/7/1.jpg",
+      "images/kitchen/7/2.jpg",
+      "images/kitchen/7/3.jpg"
+    ]
+  },
+  {
+    id: 8,
+    name: "სამზარეულო",
+    room: "dining-room",
+    roomLabel: "სამზარეულო",
+    description: "გამოყენებული მასალა : საფასადე მასალა -AGT MDF;  ხის ფაქტურა :  - ავსტრიული EGGER - ის ლამინატი; მექანიზმი - ბლუმი.",
+    photos: [
+      "images/kitchen/8/1.jpg",
+      "images/kitchen/8/2.jpg",
+      "images/kitchen/8/3.jpg",
+      "images/kitchen/8/4.jpg",
+      "images/kitchen/8/5.jpg",
+      "images/kitchen/8/6.jpg"
+
+    ]
+  },
+    {
+    id: 9,
+    name: "ტვ კარადა",
+    room: "living-room",
+    roomLabel: "მისაღები",
+    description: "ტვ სივრცეს სახლში დიდი დატვირთვა აქვს, სიმყუდროვის შექმნის კუთხით",
+    photos: [
+      "images/livingroom/9/1.jpg",
+      "images/livingroom/9/2.jpg",
+      "images/livingroom/9/3.jpg"
+    ]
+  },
+  {
+    id: 10,
+    name: "სათავსო კარადა",
+    room: "bedroom",
+    roomLabel: "საძინებელი",
+    description: "გამოყენებული მასალა: დაშპონილი მდფ მუხა; ევროპული ლამინატი; ალუმინის შუშიანი ფასადები; საგარდირობე აქსესუარები",
+    photos: [
+      "images/badroom/10/1.jpg",
+      "images/badroom/10/2.jpg",
+      "images/badroom/10/3.jpg"
+    ]
+  },
+    {
+    id: 11,
+    name: "ბავშვთა ოთახი",
+    room: "bedroom",
+    roomLabel: "საძინებელი",
+    description: "ორსართულიანი საწოლი, კომფორტული სამუშაო სივრცე, ტანსაცმლის კარადა, დამატებითი სათავსოები და თაროები",
+    photos: [
+      "images/badroom/11/1.jpg",
+      "images/badroom/11/2.jpg",
+      "images/badroom/11/3.jpg"
+    ]
+  },
+  {
+    id: 12,
+    name: "სამზარეულო",
+    room: "dining-room",
+    roomLabel: "სამზარეულო",
+    description: "მინიმალისტური დიზაინი, ბუნებრივი ტექსტურები და პრაქტიკული სივრცე ყოველდღიური კომფორტისთვის",
+    photos: [
+      "images/kitchen/12/1.jpg",
+      "images/kitchen/12/2.jpg",
+      "images/kitchen/12/3.jpg",
+      "images/kitchen/12/4.jpg",
+      "images/kitchen/12/5.jpg"
+
+    ]
+  },
+    {
+    id: 13,
+    name: "სამზარეულო",
+    room: "dining-room",
+    roomLabel: "სამზარეულო",
+    description: "ხის ტექსტურის ზედა კარადები, თეთრი მინიმალისტური ფასადები და მარმარილოს ეფექტის კედელი ქმნის ძალიან თბილ და ელეგანტურ სივრცეს.",
+    photos: [
+      "images/kitchen/13/1.jpg",
+      "images/kitchen/13/2.jpg",
+      "images/kitchen/13/3.jpg",
+      "images/kitchen/13/4.jpg",
+      "images/kitchen/13/5.jpg"
+
+    ]
+  },
+  {
+    id: 14,
+    name: "ტვ კარადა",
+    room: "living-room",
+    roomLabel: "მისაღები",
+    description: "ტვ სივრცეს სახლში დიდი დატვირთვა აქვს, სიმყუდროვის შექმნის კუთხით",
+    photos: [
+      "images/livingroom/14/1.jpg",
+      "images/livingroom/14/2.jpg",
+      "images/livingroom/14/3.jpg"
+    ]
+  },
+  {
+    id: 15,
+    name: "კარადა",
     room: "hall",
     roomLabel: "ჰოლი / შემოსასვლელი",
-    description: "მყარი მუხის სამუშაო მაგიდა ჩაშენებული კაბელების მართვით და სამი ჩამკეტი უჯრით.",
+    description: "შემოსასვლელის კარადა სარკით",
     photos: [
-      "images/products/office-desk-1.jpg",
-      "images/products/office-desk-2.jpg",
-      "images/products/office-desk-3.jpg"
+      "images/holl/1.jpg"
     ]
   }
 ];
