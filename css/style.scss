@@ -1,12 +1,4 @@
-// ═══════════════════════════════════════════
-// FONTS — must come before everything else
-// ═══════════════════════════════════════════
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap');
-
-
-// ═══════════════════════════════════════════
-// VARIABLES
-// ═══════════════════════════════════════════
 $black:       #0a0a0a;
 $black-soft:  #1a1a1a;
 $gold:        #c9a84c;
@@ -17,16 +9,12 @@ $text-light:  #ffffff;
 $text-muted:  #aaaaaa;
 $text-body:   #cccccc;
 $transition:  0.35s ease;
-
 $font-display: 'Cormorant Garamond', serif;
 $font-body:    'Montserrat', sans-serif;
-
-// Footer-specific
 $footer-text-primary: #e8dfd2;
 $footer-text-muted:   #8a7e72;
 $footer-text-dim:     #6e6358;
 $footer-text-faint:   #4a4540;
-
 $spacing-xs:  8px;
 $spacing-sm:  12px;
 $spacing-md:  20px;
@@ -34,22 +22,16 @@ $spacing-lg:  28px;
 $spacing-xl:  40px;
 $spacing-2xl: 64px;
 
-
-// ═══════════════════════════════════════════
-// RESET
-// ═══════════════════════════════════════════
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   width: 100%;
 }
-
 body {
   background-color: $black;
   color: $white;
@@ -66,12 +48,10 @@ body {
     left: 0;
   }
 }
-
 a {
   text-decoration: none;
   color: inherit;
 }
-
 img {
   display: block;
   width: 100%;
@@ -79,16 +59,11 @@ img {
   object-fit: cover;
   max-width: 100%;
 }
-
 h1, h2, h3, h4, p, a, span {
   overflow-wrap: break-word;
   word-break: break-word;
 }
-
-
-// ═══════════════════════════════════════════
-// HEADER
-// ═══════════════════════════════════════════
+// header
 .header {
   position: fixed;
   top: 0;
@@ -146,11 +121,7 @@ h1, h2, h3, h4, p, a, span {
     }
   }
 }
-
-
-// ═══════════════════════════════════════════
-// BURGER
-// ═══════════════════════════════════════════
+// burger bar
 .burger {
   display: none;
   flex-direction: column;
@@ -179,11 +150,7 @@ h1, h2, h3, h4, p, a, span {
     span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
   }
 }
-
-
-// ═══════════════════════════════════════════
-// MENU OVERLAY
-// ═══════════════════════════════════════════
+// overlay menu
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -254,10 +221,7 @@ h1, h2, h3, h4, p, a, span {
   }
 }
 
-
-// ═══════════════════════════════════════════
-// HERO SECTION
-// ═══════════════════════════════════════════
+// first section
 .home_section {
   width: 100%;
   min-height: 100vh;
@@ -354,10 +318,7 @@ h1, h2, h3, h4, p, a, span {
   }
 }
 
-
-// ═══════════════════════════════════════════
-// ABOUT SECTION
-// ═══════════════════════════════════════════
+// about section
 .about_section {
   width: 100%;
   padding: 120px 60px 80px;
@@ -373,10 +334,6 @@ h1, h2, h3, h4, p, a, span {
   }
 }
 
-
-// ═══════════════════════════════════════════
-// MATERIALS SECTION
-// ═══════════════════════════════════════════
 .materials-section {
   background-color: $black;
   padding: 4rem 1.5rem;
@@ -475,22 +432,16 @@ h1, h2, h3, h4, p, a, span {
   line-height: 1.65;
   margin: 0;
 }
-
-
-// ═══════════════════════════════════════════
-// COLLECTION SECTION
-// ═══════════════════════════════════════════
+// collection
 .collection_section {
   width: 100%;
   padding: 120px 60px 100px;
   background: $black;
 }
-
 .collection_header {
   text-align: center;
   margin-bottom: 64px;
 }
-
 .collection_title {
   font-family: $font-display;
   font-size: clamp(2rem, 4vw, 3.5rem);
@@ -507,7 +458,6 @@ h1, h2, h3, h4, p, a, span {
   margin-bottom: 48px;
 }
 
-// ── Room Filter ──────────────────────────────
 .room_filter {
   display: flex;
   justify-content: center;
@@ -539,14 +489,12 @@ h1, h2, h3, h4, p, a, span {
   }
 }
 
-// ── Cards Grid ───────────────────────────────
 .collection_grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 40px;
 }
 
-// ── Product Card ─────────────────────────────
 .product_card {
   background: $black-soft;
   border: 1px solid rgba($gold, 0.12);
@@ -570,13 +518,11 @@ h1, h2, h3, h4, p, a, span {
   to { opacity: 1; transform: translateY(0); }
 }
 
-// ── Photo Strip ──────────────────────────────
 .card_photos {
   position: relative;
   height: 260px;
   overflow: hidden;
 }
-
 .photos_track {
   display: flex;
   height: 100%;
@@ -624,7 +570,6 @@ h1, h2, h3, h4, p, a, span {
 
 .product_card:hover .photo_slide img { transform: scale(1.04); }
 
-// Dots navigation
 .photo_dots {
   position: absolute;
   bottom: 10px;
@@ -649,7 +594,6 @@ h1, h2, h3, h4, p, a, span {
   }
 }
 
-// Arrow buttons
 .photo_arrow {
   position: absolute;
   top: 50%;
@@ -677,7 +621,6 @@ h1, h2, h3, h4, p, a, span {
 
 .card_photos:hover .photo_arrow { opacity: 1; }
 
-// ── Card Info ────────────────────────────────
 .card_info {
   padding: 28px 28px 32px;
 }
@@ -704,11 +647,7 @@ h1, h2, h3, h4, p, a, span {
   line-height: 1.75;
   color: $text-muted;
 }
-
-
-// ═══════════════════════════════════════════
-// CONTACT SECTION
-// ═══════════════════════════════════════════
+// contact section
 .contact_section {
   width: 100%;
   min-height: 100vh;
@@ -827,11 +766,7 @@ h1, h2, h3, h4, p, a, span {
     &.error   { color: #e07070; }
   }
 }
-
-
-// ═══════════════════════════════════════════
-// FOOTER
-// ═══════════════════════════════════════════
+// footer
 .footer {
   background: $black;
   color: $footer-text-primary;
@@ -946,10 +881,7 @@ h1, h2, h3, h4, p, a, span {
   }
 }
 
-
-// ═══════════════════════════════════════════
-// RESPONSIVE — 768px
-// ═══════════════════════════════════════════
+// responsive
 @media (max-width: 768px) {
   .header {
     padding: 18px 24px;
@@ -1056,9 +988,6 @@ h1, h2, h3, h4, p, a, span {
 }
 
 
-// ═══════════════════════════════════════════
-// RESPONSIVE — 480px
-// ═══════════════════════════════════════════
 @media (max-width: 480px) {
   .home_section {
     padding: 90px 20px 32px;
@@ -1106,9 +1035,6 @@ h1, h2, h3, h4, p, a, span {
 }
 
 
-// ═══════════════════════════════════════════
-// RESPONSIVE — 380px
-// ═══════════════════════════════════════════
 @media (max-width: 380px) {
   .header {
     padding: 14px 16px;

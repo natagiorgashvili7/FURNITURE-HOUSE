@@ -1,6 +1,4 @@
-// ═══════════════════════════════════════════
-// BURGER / MENU OVERLAY
-// ═══════════════════════════════════════════
+// burger menu
 const burger      = document.getElementById('burger');
 const menuOverlay = document.getElementById('menuOverlay');
 const menuLinks   = document.querySelectorAll('.menu-link');
@@ -40,10 +38,7 @@ menuLinks.forEach(link => {
   });
 });
 
-
-// ═══════════════════════════════════════════
-// CONTACT FORM
-// ═══════════════════════════════════════════
+// contact form
 const contactForm = document.getElementById('contactForm');
 const formStatus  = document.getElementById('formStatus');
 const btnText     = document.getElementById('btnText');
@@ -73,9 +68,7 @@ contactForm.addEventListener('submit', function (e) {
 });
 
 
-// ═══════════════════════════════════════════
-// MATERIALS SCROLL ANIMATION
-// ═══════════════════════════════════════════
+// material scroll
 function initMaterials() {
   const list  = document.querySelector('.materials-list');
   const items = document.querySelectorAll('.material-item');
@@ -114,9 +107,7 @@ if (document.readyState === 'loading') {
 }
 
 
-// ═══════════════════════════════════════════
-// COLLECTION
-// ═══════════════════════════════════════════
+// collection
 (function () {
   'use strict';
 
@@ -124,13 +115,11 @@ if (document.readyState === 'loading') {
   const filterBtns = document.querySelectorAll('.filter_btn');
   if (!grid || typeof PRODUCTS === 'undefined') return;
 
-  // ── Build a single card ──────────────────
   function buildCard(product) {
     const card = document.createElement('div');
     card.className  = 'product_card';
     card.dataset.room = product.room;
 
-    // Photo strip
     const photosWrap = document.createElement('div');
     photosWrap.className = 'card_photos';
 
@@ -157,7 +146,6 @@ if (document.readyState === 'loading') {
 
     photosWrap.appendChild(track);
 
-    // Dots
     const dotsEl = document.createElement('div');
     dotsEl.className = 'photo_dots';
     product.photos.forEach(function (_, idx) {
@@ -167,7 +155,6 @@ if (document.readyState === 'loading') {
     });
     photosWrap.appendChild(dotsEl);
 
-    // Arrows (only when multiple photos)
     if (product.photos.length > 1) {
       ['prev', 'next'].forEach(function (dir) {
         const btn = document.createElement('button');
@@ -182,7 +169,6 @@ if (document.readyState === 'loading') {
       });
     }
 
-    // Card info — no price
     const info = document.createElement('div');
     info.className = 'card_info';
     info.innerHTML =
@@ -193,7 +179,6 @@ if (document.readyState === 'loading') {
     card.appendChild(photosWrap);
     card.appendChild(info);
 
-    // Sync dots on native scroll
     track.addEventListener('scroll', function () {
       syncDots(track, dotsEl, product.photos.length);
     }, { passive: true });
@@ -203,7 +188,7 @@ if (document.readyState === 'loading') {
     return card;
   }
 
-  // ── Slide helpers ────────────────────────
+  
   function scrollBySlide(track, dotsEl, delta, total) {
     var w       = track.offsetWidth;
     var current = Math.round(track.scrollLeft / w);
@@ -226,7 +211,6 @@ if (document.readyState === 'loading') {
     });
   }
 
-  // ── Mouse drag ───────────────────────────
   function enableDrag(track) {
     var startX, scrollLeft, dragging = false;
 
@@ -250,7 +234,7 @@ if (document.readyState === 'loading') {
     });
   }
 
-  // ── Render filtered cards ────────────────
+
   function render(room) {
     grid.innerHTML = '';
     var filtered = room === 'all'
@@ -262,7 +246,6 @@ if (document.readyState === 'loading') {
     });
   }
 
-  // ── Filter buttons ───────────────────────
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       filterBtns.forEach(function (b) { b.classList.remove('active'); });
@@ -271,7 +254,6 @@ if (document.readyState === 'loading') {
     });
   });
 
-  // ── Initial render ───────────────────────
   render('all');
 
 })();
