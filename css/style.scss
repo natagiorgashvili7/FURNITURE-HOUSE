@@ -1,4 +1,10 @@
 // ═══════════════════════════════════════════
+// FONTS — must come before everything else
+// ═══════════════════════════════════════════
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap');
+
+
+// ═══════════════════════════════════════════
 // VARIABLES
 // ═══════════════════════════════════════════
 $black:       #0a0a0a;
@@ -7,7 +13,6 @@ $gold:        #c9a84c;
 $gold-light:  #e0bc72;
 $white:       #f5f5f5;
 $gray:        #888888;
-$bg:          #111111;
 $text-light:  #ffffff;
 $text-muted:  #aaaaaa;
 $text-body:   #cccccc;
@@ -21,7 +26,6 @@ $footer-text-primary: #e8dfd2;
 $footer-text-muted:   #8a7e72;
 $footer-text-dim:     #6e6358;
 $footer-text-faint:   #4a4540;
-$footer-border:       #2e2b27;
 
 $spacing-xs:  8px;
 $spacing-sm:  12px;
@@ -32,19 +36,12 @@ $spacing-2xl: 64px;
 
 
 // ═══════════════════════════════════════════
-// FONTS
-// ═══════════════════════════════════════════
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap');
-
-
-// ═══════════════════════════════════════════
 // RESET
 // ═══════════════════════════════════════════
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 100%;
 }
 
 html {
@@ -83,7 +80,7 @@ img {
   max-width: 100%;
 }
 
-h1, h2, h3, p, a, span {
+h1, h2, h3, h4, p, a, span {
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -417,6 +414,9 @@ h1, h2, h3, p, a, span {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .material-item {
@@ -474,6 +474,235 @@ h1, h2, h3, p, a, span {
   font-size: 0.9rem;
   line-height: 1.65;
   margin: 0;
+}
+
+
+// ═══════════════════════════════════════════
+// COLLECTION SECTION
+// ═══════════════════════════════════════════
+.collection_section {
+  width: 100%;
+  padding: 120px 60px 100px;
+  background: $black;
+}
+
+.collection_header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.collection_title {
+  font-family: $font-display;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: $gold;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.collection_subtitle {
+  font-size: 0.88rem;
+  color: $gray;
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+
+// ── Room Filter ──────────────────────────────
+.room_filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter_btn {
+  background: transparent;
+  border: 1px solid rgba($gold, 0.3);
+  color: $text-muted;
+  font-family: $font-body;
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all $transition;
+
+  &:hover {
+    border-color: $gold;
+    color: $gold;
+  }
+
+  &.active {
+    background: $gold;
+    border-color: $gold;
+    color: $black;
+  }
+}
+
+// ── Cards Grid ───────────────────────────────
+.collection_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 40px;
+}
+
+// ── Product Card ─────────────────────────────
+.product_card {
+  background: $black-soft;
+  border: 1px solid rgba($gold, 0.12);
+  overflow: hidden;
+  transition: border-color $transition, transform $transition;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardReveal 0.5s ease forwards;
+
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) { animation-delay: #{($i - 1) * 0.07}s; }
+  }
+
+  &:hover {
+    border-color: rgba($gold, 0.4);
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes cardReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// ── Photo Strip ──────────────────────────────
+.card_photos {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.photos_track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+
+  &::-webkit-scrollbar { display: none; }
+  &.is-dragging        { cursor: grabbing; }
+}
+
+.photo_slide {
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    pointer-events: none;
+  }
+
+  &.no-image {
+    background: linear-gradient(135deg, rgba($gold, 0.08) 0%, rgba($black, 0.8) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: attr(data-label);
+      font-family: $font-display;
+      font-size: 1rem;
+      color: rgba($gold, 0.35);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.product_card:hover .photo_slide img { transform: scale(1.04); }
+
+// Dots navigation
+.photo_dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photo_dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba($white, 0.35);
+  transition: background 0.25s, transform 0.25s;
+
+  &.active {
+    background: $gold;
+    transform: scale(1.3);
+  }
+}
+
+// Arrow buttons
+.photo_arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba($black, 0.55);
+  border: 1px solid rgba($gold, 0.3);
+  color: $gold;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.25s, background 0.25s;
+  font-size: 0.75rem;
+  padding: 0;
+
+  &.prev { left: 10px; }
+  &.next { right: 10px; }
+
+  &:hover { background: rgba($gold, 0.25); }
+}
+
+.card_photos:hover .photo_arrow { opacity: 1; }
+
+// ── Card Info ────────────────────────────────
+.card_info {
+  padding: 28px 28px 32px;
+}
+
+.card_room_label {
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $gray;
+  margin-bottom: 10px;
+}
+
+.card_name {
+  font-family: $font-display;
+  font-size: 1.45rem;
+  font-weight: 300;
+  color: $gold;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.card_desc {
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: $text-muted;
 }
 
 
@@ -613,7 +842,6 @@ h1, h2, h3, p, a, span {
   &__inner {
     padding: $spacing-2xl 60px 48px;
     max-width: 960px;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 48px;
@@ -623,7 +851,6 @@ h1, h2, h3, p, a, span {
       "social  contact";
   }
 
-  // Brand
   &__brand {
     grid-area: brand;
     margin-bottom: $spacing-md;
@@ -647,7 +874,6 @@ h1, h2, h3, p, a, span {
     margin: 0;
   }
 
-  // Description
   &__desc {
     grid-area: desc;
     font-size: 14px;
@@ -656,7 +882,6 @@ h1, h2, h3, p, a, span {
     margin: 0 0 $spacing-md;
   }
 
-  // Social
   &__social {
     grid-area: social;
     display: flex;
@@ -690,7 +915,6 @@ h1, h2, h3, p, a, span {
     transition: fill 0.2s;
   }
 
-  // Contact (right column)
   &__contact {
     grid-area: contact;
     list-style: none;
@@ -768,11 +992,24 @@ h1, h2, h3, p, a, span {
     }
   }
 
-  .materials-section   { padding: 2.5rem 1.25rem; }
-  .materials-title     { font-size: 1.2rem; }
-  .materials-intro     { font-size: 0.92rem; }
-  .material-name       { font-size: 0.95rem; }
-  .material-desc       { font-size: 0.85rem; }
+  .materials-section { padding: 2.5rem 1.25rem; }
+  .materials-title   { font-size: 1.2rem; }
+  .materials-intro   { font-size: 0.92rem; }
+  .material-name     { font-size: 0.95rem; }
+  .material-desc     { font-size: 0.85rem; }
+
+  .collection_section {
+    padding: 80px 24px 64px;
+  }
+
+  .collection_grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .card_photos { height: 220px; }
+
+  .photo_arrow { opacity: 1; }
 
   .contact_section {
     padding: 80px 24px 60px;
@@ -797,7 +1034,6 @@ h1, h2, h3, p, a, span {
     letter-spacing: 4px;
   }
 
-  // Footer — single column on mobile
   .footer {
     &__inner {
       padding: $spacing-xl 24px 36px;
@@ -809,9 +1045,7 @@ h1, h2, h3, p, a, span {
         "contact";
     }
 
-    &__social {
-      margin-bottom: $spacing-lg;
-    }
+    &__social { margin-bottom: $spacing-lg; }
 
     &__contact {
       border-left: none;
@@ -841,20 +1075,24 @@ h1, h2, h3, p, a, span {
     .main_photo { height: 56vw; }
   }
 
-  .about_section   { padding: 70px 0 48px; }
+  .about_section { padding: 70px 0 48px; }
 
-  .materials-section  { padding: 2rem 1rem; }
-  .materials-header   { margin-bottom: 2rem; }
-  .materials-title    { font-size: 1.1rem; margin-bottom: 1rem; }
-  .materials-intro    { font-size: 0.88rem; line-height: 1.7; }
-  .materials-list     { gap: 1.2rem; }
-  .material-content   { padding-left: 1rem; }
-  .material-name      { font-size: 0.9rem; }
-  .material-desc      { font-size: 0.82rem; line-height: 1.6; }
+  .materials-section { padding: 2rem 1rem; }
+  .materials-header  { margin-bottom: 2rem; }
+  .materials-title   { font-size: 1.1rem; margin-bottom: 1rem; }
+  .materials-intro   { font-size: 0.88rem; line-height: 1.7; }
+  .materials-list    { gap: 1.2rem; }
+  .material-content  { padding-left: 1rem; }
+  .material-name     { font-size: 0.9rem; }
+  .material-desc     { font-size: 0.82rem; line-height: 1.6; }
 
-  .contact_section {
-    padding: 80px 16px 48px;
-  }
+  .collection_section { padding: 70px 16px 48px; }
+  .filter_btn         { padding: 9px 16px; font-size: 0.62rem; }
+  .card_photos        { height: 200px; }
+  .card_info          { padding: 20px 20px 24px; }
+  .card_name          { font-size: 1.2rem; }
+
+  .contact_section { padding: 80px 16px 48px; }
 
   .menu-overlay .menu-nav {
     gap: 28px;
@@ -892,7 +1130,7 @@ h1, h2, h3, p, a, span {
     .main_photo { height: 58vw; }
   }
 
-  .about_section  { padding: 60px 0 36px; }
+  .about_section { padding: 60px 0 36px; }
 
   .materials-section { padding: 1.75rem 0.875rem; }
   .materials-title   { font-size: 1rem; }
@@ -911,10 +1149,10 @@ h1, h2, h3, p, a, span {
   }
 
   .footer {
-    &__inner        { padding: $spacing-lg 16px 28px; }
-    &__logo         { font-size: 1.1rem; letter-spacing: 2px; }
-    &__tagline      { font-size: 11px; }
-    &__desc         { font-size: 13px; }
+    &__inner         { padding: $spacing-lg 16px 28px; }
+    &__logo          { font-size: 1.1rem; letter-spacing: 2px; }
+    &__tagline       { font-size: 11px; }
+    &__desc          { font-size: 13px; }
     &__contact-value { font-size: 14px; }
   }
 }

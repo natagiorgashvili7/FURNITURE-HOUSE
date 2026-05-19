@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,48 +13,55 @@
     <a href="#home" class="logo">WOOD ART</a>
 
     <nav class="nav">
-      <a href="#home" class="nav-link">მთავარი</a>
-      <a href="#about" class="nav-link">შესახებ</a>
-      <a href="#contact" class="nav-link">საკონტაქტო</a>
+      <a href="#home"       class="nav-link">მთავარი</a>
+      <a href="#about"      class="nav-link">შესახებ</a>
       <a href="#collection" class="nav-link">კოლექცია</a>
+      <a href="#contact"    class="nav-link">საკონტაქტო</a>
     </nav>
 
-    <button class="burger" id="burger">
+    <button class="burger" id="burger" aria-label="მენიუ">
       <span></span>
       <span></span>
       <span></span>
     </button>
   </header>
 
-  <!-- overlay is OUTSIDE header -->
   <div class="menu-overlay" id="menuOverlay">
     <nav class="menu-nav">
-      <a href="#home" class="menu-link">მთავარი</a>
-      <a href="#about" class="menu-link">შესახებ</a>
-      <a href="#contact" class="menu-link">საკონტაქტო</a>
+      <a href="#home"       class="menu-link">მთავარი</a>
+      <a href="#about"      class="menu-link">შესახებ</a>
       <a href="#collection" class="menu-link">კოლექცია</a>
+      <a href="#contact"    class="menu-link">საკონტაქტო</a>
     </nav>
   </div>
 
   <main>
+
+    <!-- ── HERO ─────────────────────────────── -->
     <section class="home_section" id="home">
       <div class="main_title">
-        <h1 class="title">კომფორტისა და სტილის <span>სრულყოფილი შერწყმა</span></h1>
-        <p class="sub_title">შექმენით სასურველი ინტერიერი ხარისხიან და დახვეწილ დეტალებთან ერთად.</p>
+        <h1 class="title">
+          კომფორტისა და სტილის <span>სრულყოფილი შერწყმა</span>
+        </h1>
+        <p class="sub_title">
+          შექმენით სასურველი ინტერიერი ხარისხიან და დახვეწილ დეტალებთან ერთად.
+        </p>
         <a href="#collection" class="hero-btn">კოლექციის ნახვა</a>
       </div>
       <div class="main_photo">
-        <img src="images/main_photo.jpg" alt="main photo">
+        <img src="images/main_photo.jpg" alt="მთავარი ფოტო" />
       </div>
     </section>
 
+    <!-- ── ABOUT ─────────────────────────────── -->
     <section class="about_section" id="about">
       <h2>შესახებ</h2>
+
       <section class="materials-section" id="materials">
         <div class="materials-container">
 
           <div class="materials-header">
-            <h2 class="materials-title">პრემიუმ მასალები</h2>
+            <h3 class="materials-title">პრემიუმ მასალები</h3>
             <p class="materials-intro">
               ჩვენ გვჯეროდა, რომ გამორჩეული ავეჯი იწყება გამორჩეული მასალებით.
               ჩვენი კოლექციის თითოეული ნაწარმი დამზადებულია მხოლოდ უმაღლესი ხარისხის
@@ -62,109 +69,135 @@
             </p>
           </div>
 
-          <div class="materials-list">
+          <ul class="materials-list" role="list">
 
-            <div class="material-item" data-index="0">
-              <div class="material-accent"></div>
+            <li class="material-item" data-index="0">
+              <div class="material-accent" aria-hidden="true"></div>
               <div class="material-content">
-                <h3 class="material-name">ხე</h3>
+                <h4 class="material-name">ხე</h4>
                 <p class="material-desc">ბუნებრივი ხე, შერჩეული და დამუშავებული მისი ავთენტური ნაწიბურისა და სითბოს შესანარჩუნებლად.</p>
               </div>
-            </div>
+            </li>
 
-            <div class="material-item" data-index="1">
-              <div class="material-accent"></div>
+            <li class="material-item" data-index="1">
+              <div class="material-accent" aria-hidden="true"></div>
               <div class="material-content">
-                <h3 class="material-name">მარმარილო</h3>
+                <h4 class="material-name">მარმარილო</h4>
                 <p class="material-desc">პრემიუმ მარმარილოს ზედაპირები, რომლებიც თითოეულ ნაწარმს ანიჭებენ უდროო ელეგანტობასა და გამძლეობას.</p>
               </div>
-            </div>
+            </li>
 
-            <div class="material-item" data-index="2">
-              <div class="material-accent"></div>
+            <li class="material-item" data-index="2">
+              <div class="material-accent" aria-hidden="true"></div>
               <div class="material-content">
-                <h3 class="material-name">ევროპული ლამინატი — ავსტრიული EGGER & AGT თურქული MDF</h3>
+                <h4 class="material-name">ევროპული ლამინატი — EGGER &amp; AGT MDF</h4>
                 <p class="material-desc">მაღალი ხარისხის ევროპული ლამინატი, მათ შორის ავსტრიული EGGER და AGT თურქული MDF — ცნობილი სიზუსტით, სიმტკიცითა და დახვეწილი გარეგნობით.</p>
               </div>
-            </div>
+            </li>
 
-            <div class="material-item" data-index="3">
-              <div class="material-accent"></div>
+            <li class="material-item" data-index="3">
+              <div class="material-accent" aria-hidden="true"></div>
               <div class="material-content">
-                <h3 class="material-name">დაშპონილი მუხა</h3>
+                <h4 class="material-name">დაშპონილი მუხა</h4>
                 <p class="material-desc">მუხის შპონი, რომელიც იძლევა მასიური ხის იერსახეს განსაკუთრებული სიგლუვითა და ერთგვაროვნებით.</p>
               </div>
-            </div>
+            </li>
 
-            <div class="material-item" data-index="4">
-              <div class="material-accent"></div>
+            <li class="material-item" data-index="4">
+              <div class="material-accent" aria-hidden="true"></div>
               <div class="material-content">
-                <h3 class="material-name">ნეოლითი</h3>
+                <h4 class="material-name">ნეოლითი</h4>
                 <p class="material-desc">ულტრა-კომპაქტური სინტერირებული ქვის ზედაპირი — მდგრადია ნაკაწრის, სიცხისა და ტენიანობის მიმართ.</p>
               </div>
-            </div>
+            </li>
 
-            <div class="material-item" data-index="5">
-              <div class="material-accent"></div>
+            <li class="material-item" data-index="5">
+              <div class="material-accent" aria-hidden="true"></div>
               <div class="material-content">
-                <h3 class="material-name">პოლონური GTV მექანიზმები</h3>
+                <h4 class="material-name">პოლონური GTV მექანიზმები</h4>
                 <p class="material-desc">საიმედო პოლონური GTV არმატურა — უზრუნველყოფს გლუვ და გამძლე ფუნქციონირებას თითოეულ უჯრასა და კარში.</p>
               </div>
-            </div>
+            </li>
 
-          </div>
+          </ul>
         </div>
       </section>
 
     </section>
 
+    <!-- ── COLLECTION ─────────────────────────── -->
+    <section class="collection_section" id="collection">
+      <div class="collection_header">
+        <h2 class="collection_title">კოლექცია</h2>
+        <p class="collection_subtitle">აირჩიეთ ოთახი და აღმოაჩინეთ ჩვენი დიზაინი</p>
+
+        <div class="room_filter" id="roomFilter" role="group" aria-label="ოთახის ფილტრი">
+          <button class="filter_btn active" data-room="all">ყველა</button>
+          <button class="filter_btn" data-room="living-room">მისაღები</button>
+          <button class="filter_btn" data-room="bedroom">საძინებელი</button>
+          <button class="filter_btn" data-room="dining-room">სამზარეულო</button>
+          <button class="filter_btn" data-room="hall">ჰოლი / შემოსასვლელი</button>
+        </div>
+      </div>
+
+      <div class="collection_grid" id="collectionGrid"></div>
+    </section>
+
+    <!-- ── CONTACT ────────────────────────────── -->
     <section class="contact_section" id="contact">
       <div class="contact_inner">
 
-        <!-- Left side -->
         <div class="contact_left">
           <div class="contact_info">
             <h2>საკონტაქტო</h2>
           </div>
-          <p>დაგვიკავშირდით</p>
-          <form class="contact_form" id="contactForm">
+          <p>დაგვიკავშირდით და ჩვენ გიპასუხებთ რაც შეიძლება მალე.</p>
+
+          <form class="contact_form" id="contactForm" novalidate>
             <div class="form_group">
-              <label>სახელი</label>
-              <input type="text" id="from_name" placeholder="შენი სახელი" required />
+              <label for="from_name">სახელი</label>
+              <input type="text" id="from_name" name="from_name"
+                     placeholder="შენი სახელი" required autocomplete="name" />
             </div>
             <div class="form_group">
-              <label>ელ-ფოსტა</label>
-              <input type="email" id="from_email" placeholder="შენი ელ-ფოსტა" required />
+              <label for="from_email">ელ-ფოსტა</label>
+              <input type="email" id="from_email" name="from_email"
+                     placeholder="შენი ელ-ფოსტა" required autocomplete="email" />
             </div>
             <div class="form_group">
-              <label>შეტყობინება</label>
-              <textarea id="message" rows="4" placeholder="შენი შეტყობინება" required></textarea>
+              <label for="message">შეტყობინება</label>
+              <textarea id="message" name="message" rows="4"
+                        placeholder="შენი შეტყობინება" required></textarea>
             </div>
+
             <button type="submit" class="send_btn">
               <span id="btnText">გაგზავნა</span>
             </button>
           </form>
 
-          <p class="form_status" id="formStatus"></p>
+          <p class="form_status" id="formStatus" role="status" aria-live="polite"></p>
         </div>
 
       </div>
     </section>
 
   </main>
+
+  <!-- ── FOOTER ─────────────────────────────── -->
   <footer class="footer">
     <div class="footer__inner">
- 
+
       <div class="footer__brand">
         <p class="footer__logo">WOOD ART.</p>
         <p class="footer__tagline">ხელნაკეთი ავეჯი მაღალი ხარისხით</p>
       </div>
-      <p class="footer__desc">
-        შექმნილი იმისთვის, რომ თაობებს გაუძლოს.
-      </p>
+
+      <p class="footer__desc">შექმნილი იმისთვის, რომ თაობებს გაუძლოს.</p>
+
       <div class="footer__social">
-        <a href="#" class="footer__social-btn" aria-label="Facebook">
-          <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <a href="https://facebook.com" class="footer__social-btn"
+           aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99
               4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43
               c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953
@@ -173,20 +206,21 @@
           </svg>
         </a>
       </div>
- 
+
       <ul class="footer__contact">
         <li class="footer__contact-item">
-          <span class="footer__contact-label">Phone</span>
-          <span class="footer__contact-value"></span>
+          <span class="footer__contact-label">ტელეფონი</span>
+          <span class="footer__contact-value">+995 XXX XXX XXX</span>
         </li>
         <li class="footer__contact-item">
-          <span class="footer__contact-label">Address</span>
-          <span class="footer__contact-value"></span>
+          <span class="footer__contact-label">მისამართი</span>
+          <span class="footer__contact-value">თბილისი, საქართველო</span>
         </li>
       </ul>
- 
+
     </div>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>emailjs.init("Huw9ehwUBKolvc5UG");</script>
   <script src="data/products.js"></script>

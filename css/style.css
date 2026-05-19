@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 100%;
 }
 
 html {
@@ -41,7 +40,7 @@ img {
   max-width: 100%;
 }
 
-h1, h2, h3, p, a, span {
+h1, h2, h3, h4, p, a, span {
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -339,6 +338,9 @@ h1, h2, h3, p, a, span {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .material-item {
@@ -407,6 +409,262 @@ h1, h2, h3, p, a, span {
   font-size: 0.9rem;
   line-height: 1.65;
   margin: 0;
+}
+
+.collection_section {
+  width: 100%;
+  padding: 120px 60px 100px;
+  background: #0a0a0a;
+}
+
+.collection_header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.collection_title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: #c9a84c;
+  letter-spacing: 4px;
+  margin-bottom: 16px;
+}
+
+.collection_subtitle {
+  font-size: 0.88rem;
+  color: #888888;
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+
+.room_filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter_btn {
+  background: transparent;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: #aaaaaa;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+.filter_btn:hover {
+  border-color: #c9a84c;
+  color: #c9a84c;
+}
+.filter_btn.active {
+  background: #c9a84c;
+  border-color: #c9a84c;
+  color: #0a0a0a;
+}
+
+.collection_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 40px;
+}
+
+.product_card {
+  background: #1a1a1a;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  overflow: hidden;
+  transition: border-color 0.35s ease, transform 0.35s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: cardReveal 0.5s ease forwards;
+}
+.product_card:nth-child(1) {
+  animation-delay: 0s;
+}
+.product_card:nth-child(2) {
+  animation-delay: 0.07s;
+}
+.product_card:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.product_card:nth-child(4) {
+  animation-delay: 0.21s;
+}
+.product_card:nth-child(5) {
+  animation-delay: 0.28s;
+}
+.product_card:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.product_card:nth-child(7) {
+  animation-delay: 0.42s;
+}
+.product_card:nth-child(8) {
+  animation-delay: 0.49s;
+}
+.product_card:nth-child(9) {
+  animation-delay: 0.56s;
+}
+.product_card:nth-child(10) {
+  animation-delay: 0.63s;
+}
+.product_card:nth-child(11) {
+  animation-delay: 0.7s;
+}
+.product_card:nth-child(12) {
+  animation-delay: 0.77s;
+}
+.product_card:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  transform: translateY(-4px);
+}
+
+@keyframes cardReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card_photos {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+
+.photos_track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.photos_track::-webkit-scrollbar {
+  display: none;
+}
+.photos_track.is-dragging {
+  cursor: grabbing;
+}
+
+.photo_slide {
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+}
+.photo_slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+.photo_slide.no-image {
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.08) 0%, rgba(10, 10, 10, 0.8) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo_slide.no-image::after {
+  content: attr(data-label);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  color: rgba(201, 168, 76, 0.35);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.product_card:hover .photo_slide img {
+  transform: scale(1.04);
+}
+
+.photo_dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photo_dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(245, 245, 245, 0.35);
+  transition: background 0.25s, transform 0.25s;
+}
+.photo_dot.active {
+  background: #c9a84c;
+  transform: scale(1.3);
+}
+
+.photo_arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 10, 10, 0.55);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: #c9a84c;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.25s, background 0.25s;
+  font-size: 0.75rem;
+  padding: 0;
+}
+.photo_arrow.prev {
+  left: 10px;
+}
+.photo_arrow.next {
+  right: 10px;
+}
+.photo_arrow:hover {
+  background: rgba(201, 168, 76, 0.25);
+}
+
+.card_photos:hover .photo_arrow {
+  opacity: 1;
+}
+
+.card_info {
+  padding: 28px 28px 32px;
+}
+
+.card_room_label {
+  font-size: 0.62rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 10px;
+}
+
+.card_name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+  font-weight: 300;
+  color: #c9a84c;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+
+.card_desc {
+  font-size: 0.84rem;
+  line-height: 1.75;
+  color: #aaaaaa;
 }
 
 .contact_section {
@@ -678,6 +936,19 @@ h1, h2, h3, p, a, span {
   .material-desc {
     font-size: 0.85rem;
   }
+  .collection_section {
+    padding: 80px 24px 64px;
+  }
+  .collection_grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .card_photos {
+    height: 220px;
+  }
+  .photo_arrow {
+    opacity: 1;
+  }
   .contact_section {
     padding: 80px 24px 60px;
     min-height: unset;
@@ -762,6 +1033,22 @@ h1, h2, h3, p, a, span {
   .material-desc {
     font-size: 0.82rem;
     line-height: 1.6;
+  }
+  .collection_section {
+    padding: 70px 16px 48px;
+  }
+  .filter_btn {
+    padding: 9px 16px;
+    font-size: 0.62rem;
+  }
+  .card_photos {
+    height: 200px;
+  }
+  .card_info {
+    padding: 20px 20px 24px;
+  }
+  .card_name {
+    font-size: 1.2rem;
   }
   .contact_section {
     padding: 80px 16px 48px;
