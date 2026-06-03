@@ -4,6 +4,20 @@ const PRODUCTS = [
     name: "სამზარეულო",
     room: "dining-room",
     roomLabel: "სამზარეულო",
+    description: "სივრცე, სადაც დიზაინი და კომფორტი ერთიანდება",
+    photos: [
+      "images/kitchen/15/2.jpg",
+      "images/kitchen/15/1.jpg",
+      "images/kitchen/15/3.jpg",
+      "images/kitchen/15/4.jpg",
+
+    ]
+},
+{
+    id: 2,
+    name: "სამზარეულო",
+    room: "dining-room",
+    roomLabel: "სამზარეულო",
     description: "გამოყენებული მასალა : საფასადე მასალა -AGT MDF;  ხის ფაქტურა :  - ავსტრიული EGGER - ის ლამინატი; მექანიზმი - ბლუმი.",
     photos: [
       "images/kitchen/1/1.jpg",
@@ -16,7 +30,7 @@ const PRODUCTS = [
     ]
 },
 {
-    id: 2,
+    id: 3,
     name: "ღვინის სათავსო",
     room: "dining-room",
     roomLabel: "სამზარეულო",
@@ -28,7 +42,7 @@ const PRODUCTS = [
     ]
 },
 {
-    id: 3,
+    id: 4,
     name: "ტვ კარადა",
     room: "living-room",
     roomLabel: "მისაღები",
@@ -40,7 +54,24 @@ const PRODUCTS = [
     ]
 },
 {
-    id: 4,
+    id: 5,
+    name: "სათავსო კარადა",
+    room: "bedroom",
+    roomLabel: "საძინებელი",
+    description: "თანამედროვე საძინებელი ინდივიდუალური დეტალებით",
+    photos: [
+      "images/badroom/16/1.jpg",
+      "images/badroom/16/2.jpg",
+      "images/badroom/16/3.jpg",
+      "images/badroom/16/4.jpg",
+      "images/badroom/16/5.jpg",
+      "images/badroom/16/6.jpg",
+      "images/badroom/16/7.jpg",
+      "images/badroom/16/8.jpg"
+    ]
+},
+{
+    id: 5,
     name: "სამზარეულო",
     room: "dining-room",
     roomLabel: "სამზარეულო",
@@ -55,7 +86,7 @@ const PRODUCTS = [
     ]
 },
 {
-    id: 5,
+    id: 6,
     name: "ტვ კარადა",
     room: "living-room",
     roomLabel: "მისაღები",
